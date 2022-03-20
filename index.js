@@ -2,7 +2,8 @@ const express=require("express");
 const app=express();
 const moongose=require("mongoose");
 const dotenv=require("dotenv");
-const userRoute=require("./router/user")
+const userRoute=require("./router/user");
+const authRoute=require("./router/auth");
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ moongose.connect(process.env.MONGO_URL)
 .catch((err)=>console.log(err));
 
 app.use(express.json());
+app.use("/api/auth",authRoute);
 app.use("/api/users",userRoute);
 
 app.listen(process.env.PORT || 5000,()=>{
