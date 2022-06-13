@@ -27,7 +27,7 @@ app.use("/api/checkout",stripeRoute);
 
 app.get("/",(req,res)=>{
     res.json({
-        message:"Hello backend"
+        message:"backend"
     })
 })
 
